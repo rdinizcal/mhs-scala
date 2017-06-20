@@ -1,5 +1,7 @@
 package br.unb.cic.mhs.ast
 
+import br.unb.cic.mhs.visitors.MHSVisitor
+
 /**
  * Epressao If-Then-Else, permitindo algo como: 
  * 
@@ -11,4 +13,13 @@ class ExpressaoITE(val condicao: Expressao, val clausulaThen: Expressao, val cla
       clausulaThen.avaliar()
    else clausulaElse.avaliar() 
   
+  override def verificarTipo() : Tipo = 
+    if(condicao.verificarTipo() == TBooleano && clausulaThen.verificarTipo() == clausulaElse.verificarTipo())
+      clausulaThen.verificarTipo()
+    else
+      TErro
+      
+   override def aceitar(visitor : MHSVisitor) : Unit = {
+     visitor.visitar(this)
+  }   
 }
