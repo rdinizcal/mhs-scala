@@ -14,8 +14,6 @@ class Referencia(val id: String) extends Expressao {
        TErro
    }
    
-   override def aceitar(visitor : MHSVisitor) : Unit = {
-     visitor.visitar(this)
-  }
+   override def aceitar[T](visitor : MHSVisitor[T]) : T =  visitor.visitar(this)
      
 }

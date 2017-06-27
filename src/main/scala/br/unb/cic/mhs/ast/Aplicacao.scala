@@ -15,7 +15,6 @@ class Aplicacao (val nome: String, val args: Expressao*) extends Expressao{
   
   override def verificarTipo() : Tipo = TErro
   
-  override def aceitar(visitor : MHSVisitor) : Unit = {
-     visitor.visitar(this)
-  }
+  override def aceitar[T](visitor : MHSVisitor[T]) : T =  visitor.visitar(this)
+
 }

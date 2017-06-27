@@ -19,7 +19,6 @@ class ExpressaoITE(val condicao: Expressao, val clausulaThen: Expressao, val cla
     else
       TErro
       
-   override def aceitar(visitor : MHSVisitor) : Unit = {
-     visitor.visitar(this)
-  }   
+   override def aceitar[T](visitor : MHSVisitor[T]) : T =  visitor.visitar(this)
+ 
 }

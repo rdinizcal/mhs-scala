@@ -19,7 +19,6 @@ class ExpressaoSoma(lhs : Expressao, rhs : Expressao) extends ExpressaoBinaria(l
     return if(t1.equals(TInteiro) && t2.equals(TInteiro)) TInteiro else TErro      
   }
   
-  override def aceitar(visitor : MHSVisitor) : Unit = {
-     visitor.visitar(this)
-  }
+  override def aceitar[T](visitor : MHSVisitor[T]) : T =  visitor.visitar(this)
+  
 }
