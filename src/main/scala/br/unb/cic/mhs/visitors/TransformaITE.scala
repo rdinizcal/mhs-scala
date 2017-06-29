@@ -9,7 +9,7 @@ import br.unb.cic.mhs.ast.Aplicacao
 import br.unb.cic.mhs.ast.ExpressaoLet
 import br.unb.cic.mhs.ast.Referencia
 
-class TransformaITE extends MHSVisitor[Expressao] with TransformacaoG {
+class TransformaITE extends TransformacaoG {
   override def visitar(e : ExpressaoITE)  = {
     val condicao = e.condicao.aceitar(this)
     val tupla = (e.clausulaThen, e.clausulaElse)
