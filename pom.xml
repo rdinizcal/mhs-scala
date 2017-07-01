@@ -3,19 +3,19 @@
   <groupId>br.unb.cic.mhs</groupId>
   <artifactId>mhs</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-
+  
   <dependencies>
     <dependency>
-      <groupId>org.scala-lang</groupId>
-      <artifactId>scala-library</artifactId>
-      <version>2.11.8</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.scalatest</groupId>
-      <artifactId>scalatest_2.11</artifactId>
-      <version>3.0.1</version>
-    </dependency>
+    	<groupId>org.scalactic</groupId>
+    	<artifactId>scalactic_2.11</artifactId>
+    	<version>3.2.0-SNAP5</version>
+	</dependency>
+	<dependency>
+    	<groupId>org.scalatest</groupId>
+    	<artifactId>scalatest_2.11</artifactId>
+    	<version>3.2.0-SNAP5</version>
+    	<scope>test</scope>
+	</dependency>
   </dependencies>
     
  <pluginRepositories>
