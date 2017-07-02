@@ -1,11 +1,14 @@
 package br.unb.cic.mhs.ast
 
 import br.unb.cic.mhs.visitors.MHSVisitor
+import br.unb.cic.mhs.exception.TypeException
 
 
 class ExpressaoSoma(lhs : Expressao, rhs : Expressao) extends ExpressaoBinaria(lhs, rhs) {
   /* essa implementacao eh fragil, pois nao verifica os tipos */
   override def avaliar() : Valor = {
+    if(this.verificarTipo() == TErro) throw new TypeException("Tipos incompatíveis.")
+    
     val v1 = lhs.avaliar().asInstanceOf[ValorInteiro]
     val v2 = rhs.avaliar().asInstanceOf[ValorInteiro]
       
