@@ -1,0 +1,88 @@
+Discovery starting.
+Discovery completed in 271 milliseconds.
+Run starting. Expected test count is: 7
+ExpressaoLetTeste:
+uma expressao let x = 3 in x + 1
+- should levar ao valor 4 (34 milliseconds)
+uma expressao let x = 3 in y = 5 in x + y
+- should levar ao valor 8 (1 millisecond)
+uma expressao let x = 3 in (let x = 5 in x + 1) + x
+- should levar ao valor 9 *** FAILED *** (15 milliseconds)
+  11 was not equal to 9 (ExpressaoLetTeste.scala:50)
+  org.scalatest.exceptions.TestFailedException:
+  at org.scalatest.MatchersHelper$.indicateFailure(MatchersHelper.scala:340)
+  at org.scalatest.Matchers$ShouldMethodHelper$.shouldMatcher(Matchers.scala:6674)
+  at org.scalatest.Matchers$AnyShouldWrapper.should(Matchers.scala:6710)
+  at br.unb.cic.mhs.ExpressaoLetTeste$$anonfun$3.apply(ExpressaoLetTeste.scala:50)
+  at br.unb.cic.mhs.ExpressaoLetTeste$$anonfun$3.apply(ExpressaoLetTeste.scala:42)
+  at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)
+  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
+  at org.scalatest.Transformer.apply(Transformer.scala:22)
+  at org.scalatest.Transformer.apply(Transformer.scala:20)
+  at org.scalatest.FlatSpecLike$$anon$1.apply(FlatSpecLike.scala:1682)
+  at org.scalatest.TestSuite$class.withFixture(TestSuite.scala:196)
+  at org.scalatest.FlatSpec.withFixture(FlatSpec.scala:1685)
+  at org.scalatest.FlatSpecLike$class.invokeWithFixture$1(FlatSpecLike.scala:1679)
+  at org.scalatest.FlatSpecLike$$anonfun$runTest$1.apply(FlatSpecLike.scala:1692)
+  at org.scalatest.FlatSpecLike$$anonfun$runTest$1.apply(FlatSpecLike.scala:1692)
+  at org.scalatest.SuperEngine.runTestImpl(Engine.scala:289)
+  at org.scalatest.FlatSpecLike$class.runTest(FlatSpecLike.scala:1692)
+  at org.scalatest.FlatSpec.runTest(FlatSpec.scala:1685)
+  at org.scalatest.FlatSpecLike$$anonfun$runTests$1.apply(FlatSpecLike.scala:1750)
+  at org.scalatest.FlatSpecLike$$anonfun$runTests$1.apply(FlatSpecLike.scala:1750)
+  at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:396)
+  at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:384)
+  at scala.collection.immutable.List.foreach(List.scala:381)
+  at org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:384)
+  at org.scalatest.SuperEngine.org$scalatest$SuperEngine$$runTestsInBranch(Engine.scala:373)
+  at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:410)
+  at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:384)
+  at scala.collection.immutable.List.foreach(List.scala:381)
+  at org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:384)
+  at org.scalatest.SuperEngine.org$scalatest$SuperEngine$$runTestsInBranch(Engine.scala:379)
+  at org.scalatest.SuperEngine.runTestsImpl(Engine.scala:461)
+  at org.scalatest.FlatSpecLike$class.runTests(FlatSpecLike.scala:1750)
+  at org.scalatest.FlatSpec.runTests(FlatSpec.scala:1685)
+  at org.scalatest.Suite$class.run(Suite.scala:1147)
+  at org.scalatest.FlatSpec.org$scalatest$FlatSpecLike$$super$run(FlatSpec.scala:1685)
+  at org.scalatest.FlatSpecLike$$anonfun$run$1.apply(FlatSpecLike.scala:1795)
+  at org.scalatest.FlatSpecLike$$anonfun$run$1.apply(FlatSpecLike.scala:1795)
+  at org.scalatest.SuperEngine.runImpl(Engine.scala:521)
+  at org.scalatest.FlatSpecLike$class.run(FlatSpecLike.scala:1795)
+  at org.scalatest.FlatSpec.run(FlatSpec.scala:1685)
+  at org.scalatest.Suite$class.callExecuteOnSuite$1(Suite.scala:1210)
+  at org.scalatest.Suite$$anonfun$runNestedSuites$1.apply(Suite.scala:1257)
+  at org.scalatest.Suite$$anonfun$runNestedSuites$1.apply(Suite.scala:1255)
+  at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+  at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)
+  at org.scalatest.Suite$class.runNestedSuites(Suite.scala:1255)
+  at org.scalatest.tools.DiscoverySuite.runNestedSuites(DiscoverySuite.scala:30)
+  at org.scalatest.Suite$class.run(Suite.scala:1144)
+  at org.scalatest.tools.DiscoverySuite.run(DiscoverySuite.scala:30)
+  at org.scalatest.tools.SuiteRunner.run(SuiteRunner.scala:45)
+  at org.scalatest.tools.Runner$$anonfun$doRunRunRunDaDoRunRun$1.apply(Runner.scala:1349)
+  at org.scalatest.tools.Runner$$anonfun$doRunRunRunDaDoRunRun$1.apply(Runner.scala:1343)
+  at scala.collection.immutable.List.foreach(List.scala:381)
+  at org.scalatest.tools.Runner$.doRunRunRunDaDoRunRun(Runner.scala:1343)
+  at org.scalatest.tools.Runner$$anonfun$runOptionallyWithPassFailReporter$2.apply(Runner.scala:1020)
+  at org.scalatest.tools.Runner$$anonfun$runOptionallyWithPassFailReporter$2.apply(Runner.scala:1019)
+  at org.scalatest.tools.Runner$.withClassLoaderAndDispatchReporter(Runner.scala:1509)
+  at org.scalatest.tools.Runner$.runOptionallyWithPassFailReporter(Runner.scala:1019)
+  at org.scalatest.tools.Runner$.main(Runner.scala:828)
+  at org.scalatest.tools.Runner.main(Runner.scala)
+ExpressaoSomaTeste:
+Uma soma entre os valores 3 e 4
+- should levar ao valor sete (0 milliseconds)
+ExpressaoAplicacaoTest:
+uma aplicacao inc 4 (onde existe int inc x = x + 1) 
+- should levar ao valor 5 (3 milliseconds)
+supondo (def f y = x + y), e avaliamos let x = 10 in f 5 
+- should levar ao 15 (0 milliseconds)
+MetricasTeste:
+o total de expressoes 3 + (4 + 5)
+- should levar ao valor cinco (1 millisecond)
+Run completed in 448 milliseconds.
+Total number of tests run: 7
+Suites: completed 5, aborted 0
+Tests: succeeded 6, failed 1, canceled 0, ignored 0, pending 0
+*** 1 TEST FAILED ***
