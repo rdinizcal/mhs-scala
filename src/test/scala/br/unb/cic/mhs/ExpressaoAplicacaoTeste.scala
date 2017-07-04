@@ -15,6 +15,8 @@ import br.unb.cic.mhs.memoria.AmbienteDecFuncao
 import br.unb.cic.mhs.ast.TInteiro
 import br.unb.cic.mhs.ast.DecFuncao
 import br.unb.cic.mhs.ast.ExpressaoITE
+import br.unb.cic.mhs.ast.ValorBooleano
+import br.unb.cic.mhs.exception.TypeException
 
 class ExpressaoAplicacaoTest extends FlatSpec with Matchers {
   
@@ -38,4 +40,15 @@ class ExpressaoAplicacaoTest extends FlatSpec with Matchers {
     let.avaliar().asInstanceOf[ValorInteiro].valor should be (15)
   }
   
+   "supondo (int def f y = x + y), e avaliamos let x = true in f 5 " should " levar a um erro de tipo" in {
+    val refX = new Referencia("x") 
+    val f    = new DecFuncao(TInteiro, "f", List("y"), new ExpressaoSoma(refX, new Referencia("y")))
+    val let  = new ExpressaoLet("x", new ValorBooleano(true), new Aplicacao("f", new ValorInteiro(5)))    
+ 
+    AmbienteDecFuncao.associar("f", f)
+    
+    intercept[TypeException]{
+      let.avaliar();
+    }
+  }
 }
