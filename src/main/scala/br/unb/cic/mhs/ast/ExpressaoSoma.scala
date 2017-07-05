@@ -5,7 +5,7 @@ import br.unb.cic.mhs.exception.TypeException
 
 
 class ExpressaoSoma(lhs : Expressao, rhs : Expressao) extends ExpressaoBinaria(lhs, rhs) {
-  /* essa implementacao eh fragil, pois nao verifica os tipos */
+  
   override def avaliar() : Valor = {
     if(this.verificarTipo() == TErro) throw new TypeException("Tipos incompatíveis.")
     
@@ -23,5 +23,15 @@ class ExpressaoSoma(lhs : Expressao, rhs : Expressao) extends ExpressaoBinaria(l
   }
   
   override def aceitar[T](visitor : MHSVisitor[T]) : T =  visitor.visitar(this)
+
+  override def equals(other: Any) = {
+    other match {
+      case that: br.unb.cic.mhs.ast.ExpressaoSoma => { 
+        if(this.lhs.equals(that.lhs) && this.rhs.equals(that.rhs)) true 
+        else false
+        }
+      case _ => false
+    }
+  }
   
 }

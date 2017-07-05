@@ -23,4 +23,6 @@ trait Expressao {
   def verificarTipo() : Tipo
   
   def aceitar[T](visitor : MHSVisitor[T]) : T
+  
+  override def equals(other: Any) : Boolean
 }

@@ -15,5 +15,11 @@ class Referencia(val id: String) extends Expressao {
    }
    
    override def aceitar[T](visitor : MHSVisitor[T]) : T =  visitor.visitar(this)
-     
+   
+   override def equals(other: Any) = {
+    other match {
+      case that: br.unb.cic.mhs.ast.Referencia => true
+      case _ => false
+    }
+  }
 }

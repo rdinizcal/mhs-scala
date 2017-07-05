@@ -50,4 +50,15 @@ class ExpressaoLetTeste extends FlatSpec with Matchers {
      let2.avaliar().asInstanceOf[ValorInteiro].valor should be (9)
   }
   
+  "uma exppressao let x = 3 in (x + 2)" should "ser igual a uma outra let y = 3 in (y + 2)" in {
+    val letX = new ExpressaoLet("x",new ValorInteiro(3), 
+        new ExpressaoSoma(new Referencia("x"), 
+            new ValorInteiro(2)))
+    
+    val letY = new ExpressaoLet("y",new ValorInteiro(3), 
+        new ExpressaoSoma(new Referencia("y"), 
+            new ValorInteiro(2)))
+    
+    letX.equals(letY) should be (true)
+  }
 }

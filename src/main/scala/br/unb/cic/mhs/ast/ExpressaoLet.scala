@@ -22,5 +22,14 @@ class ExpressaoLet(val id : String , val expNomeada: Expressao , val corpo: Expr
     else  corpo.verificarTipo()
   
   override def aceitar[T](visitor : MHSVisitor[T]) : T = visitor.visitar(this)
- 
+  
+  override def equals(other: Any) = {
+    other match {
+      case that: br.unb.cic.mhs.ast.ExpressaoLet => { 
+        if(this.expNomeada.equals(that.expNomeada) && this.corpo.equals(that.corpo)) true 
+        else false
+        }
+      case _ => false
+    }
+  }
 }
