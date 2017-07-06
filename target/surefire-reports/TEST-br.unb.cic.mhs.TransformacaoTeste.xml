@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuite 
-errors="0" failures="0" hostname="LENOVO-RICARDO" name="org.scalatest.tools.DiscoverySuite" tests="0" time="0.098" timestamp="2017-07-02T10:56:46">
+errors="0" failures="0" hostname="LENOVO-RICARDO" name="br.unb.cic.mhs.TransformacaoTeste" tests="1" time="0.003" timestamp="2017-07-05T23:01:36">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment">
     </property>
@@ -90,6 +90,9 @@ errors="0" failures="0" hostname="LENOVO-RICARDO" name="org.scalatest.tools.Disc
     <property name="sun.desktop" value="windows"> </property>
     <property name="sun.cpu.isalist" value="amd64"> </property>
   </properties>
+  <testcase 
+  name="uma expressao if(2 + 1) then true else false should transformar em 2 + 1" classname="br.unb.cic.mhs.TransformacaoTeste" time="0.001">
+</testcase>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

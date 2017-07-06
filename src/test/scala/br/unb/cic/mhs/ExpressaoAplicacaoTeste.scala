@@ -10,13 +10,12 @@ import br.unb.cic.mhs.ast.DecFuncao
 import br.unb.cic.mhs.ast.ExpressaoLet
 import br.unb.cic.mhs.ast.ExpressaoSoma
 import br.unb.cic.mhs.ast.Referencia
+import br.unb.cic.mhs.ast.TErro
+import br.unb.cic.mhs.ast.TInteiro
+import br.unb.cic.mhs.ast.ValorBooleano
 import br.unb.cic.mhs.ast.ValorInteiro
 import br.unb.cic.mhs.memoria.AmbienteDecFuncao
-import br.unb.cic.mhs.ast.TInteiro
-import br.unb.cic.mhs.ast.DecFuncao
-import br.unb.cic.mhs.ast.ExpressaoITE
-import br.unb.cic.mhs.ast.ValorBooleano
-import br.unb.cic.mhs.exception.TypeException
+import br.unb.cic.mhs.visitors.VerificacaoTipo
 
 class ExpressaoAplicacaoTest extends FlatSpec with Matchers {
   
@@ -40,15 +39,12 @@ class ExpressaoAplicacaoTest extends FlatSpec with Matchers {
     let.avaliar().asInstanceOf[ValorInteiro].valor should be (15)
   }
   
-   "supondo (int def f y = x + y), e avaliamos let x = true in f 5 " should " levar a um erro de tipo" in {
-    val refX = new Referencia("x") 
-    val f    = new DecFuncao(TInteiro, "f", List("y"), new ExpressaoSoma(refX, new Referencia("y")))
-    val let  = new ExpressaoLet("x", new ValorBooleano(true), new Aplicacao("f", new ValorInteiro(5)))    
- 
-    AmbienteDecFuncao.associar("f", f)
+  "uma aplicacao inc true (onde existe inc x = x + 1) " should " levar a um erro de tipo" in {
+    val inc = new DecFuncao(TInteiro, "inc", List("x"), new ExpressaoSoma(new Referencia("x"), new ValorInteiro(1)))  
+    val app = new Aplicacao("inc", new ValorBooleano(true))
     
-    intercept[TypeException]{
-      let.avaliar();
-    }
+    AmbienteDecFuncao.associar("inc", inc)
+    
+    new VerificacaoTipo().visitar(app) should be (TErro)
   }
 }

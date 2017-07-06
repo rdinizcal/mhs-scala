@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuite 
-errors="0" failures="1" hostname="LENOVO-RICARDO" name="br.unb.cic.mhs.ExpressaoSomaTeste" tests="2" time="0.004" timestamp="2017-07-05T23:01:36">
+errors="0" failures="2" hostname="LENOVO-RICARDO" name="br.unb.cic.mhs.ExpressaoITETeste" tests="4" time="0.013" timestamp="2017-07-05T23:01:36">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment">
     </property>
@@ -91,10 +91,13 @@ errors="0" failures="1" hostname="LENOVO-RICARDO" name="br.unb.cic.mhs.Expressao
     <property name="sun.cpu.isalist" value="amd64"> </property>
   </properties>
   <testcase 
-  name="uma soma entre os valores 3 e 4 should levar ao valor sete" classname="br.unb.cic.mhs.ExpressaoSomaTeste" time="0.001">
+  name="avaliar a expressao if(true) then 5 else 4 should levar ao valor 5" classname="br.unb.cic.mhs.ExpressaoITETeste" time="0.0">
 </testcase>
   <testcase 
-  name="uma soma entre valores 3 e true should levar a um erro de tipos" classname="br.unb.cic.mhs.ExpressaoSomaTeste" time="0.001">
+  name="avaliar a expressao if(false) then 5 else 4 should levar ao valor 0" classname="br.unb.cic.mhs.ExpressaoITETeste" time="0.001">
+</testcase>
+  <testcase 
+  name="a avaliacao if(5) then true else false should levar a um erro de tipo" classname="br.unb.cic.mhs.ExpressaoITETeste" time="0.004">
     <failure 
     message="Expected exception br.unb.cic.mhs.exception.TypeException to be thrown, but java.lang.ClassCastException was thrown" type="class org.scalatest.exceptions.TestFailedException">
       org.scalatest.exceptions.TestFailedException: Expected exception br.unb.cic.mhs.exception.TypeException to be thrown, but java.lang.ClassCastException was thrown
@@ -102,8 +105,8 @@ errors="0" failures="1" hostname="LENOVO-RICARDO" name="br.unb.cic.mhs.Expressao
       at org.scalatest.FlatSpec.newAssertionFailedException(FlatSpec.scala:1685)
       at org.scalatest.Assertions$class.intercept(Assertions.scala:755)
       at org.scalatest.FlatSpec.intercept(FlatSpec.scala:1685)
-      at br.unb.cic.mhs.ExpressaoSomaTeste$$anonfun$2.apply(ExpressaoSomaTeste.scala:21)
-      at br.unb.cic.mhs.ExpressaoSomaTeste$$anonfun$2.apply(ExpressaoSomaTeste.scala:19)
+      at br.unb.cic.mhs.ExpressaoITETeste$$anonfun$3.apply(ExpressaoITETeste.scala:27)
+      at br.unb.cic.mhs.ExpressaoITETeste$$anonfun$3.apply(ExpressaoITETeste.scala:24)
       at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)
       at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
       at org.scalatest.Transformer.apply(Transformer.scala:22)
@@ -159,14 +162,82 @@ errors="0" failures="1" hostname="LENOVO-RICARDO" name="br.unb.cic.mhs.Expressao
       at org.scalatest.tools.Runner$.runOptionallyWithPassFailReporter(Runner.scala:1019)
       at org.scalatest.tools.Runner$.main(Runner.scala:828)
       at org.scalatest.tools.Runner.main(Runner.scala)
-      Cause: java.lang.ClassCastException: br.unb.cic.mhs.ast.ValorBooleano cannot be cast to br.unb.cic.mhs.ast.ValorInteiro
-      at br.unb.cic.mhs.ast.ExpressaoSoma.avaliar(ExpressaoSoma.scala:13)
-      at br.unb.cic.mhs.ExpressaoSomaTeste$$anonfun$2$$anonfun$apply$1.apply(ExpressaoSomaTeste.scala:22)
-      at br.unb.cic.mhs.ExpressaoSomaTeste$$anonfun$2$$anonfun$apply$1.apply(ExpressaoSomaTeste.scala:22)
+      Cause: java.lang.ClassCastException: br.unb.cic.mhs.ast.ValorInteiro cannot be cast to br.unb.cic.mhs.ast.ValorBooleano
+      at br.unb.cic.mhs.ast.ExpressaoITE.avaliar(ExpressaoITE.scala:12)
+      at br.unb.cic.mhs.ExpressaoITETeste$$anonfun$3$$anonfun$apply$1.apply(ExpressaoITETeste.scala:28)
+      at br.unb.cic.mhs.ExpressaoITETeste$$anonfun$3$$anonfun$apply$1.apply(ExpressaoITETeste.scala:28)
       at org.scalatest.Assertions$class.intercept(Assertions.scala:748)
       at org.scalatest.FlatSpec.intercept(FlatSpec.scala:1685)
-      at br.unb.cic.mhs.ExpressaoSomaTeste$$anonfun$2.apply(ExpressaoSomaTeste.scala:21)
-      at br.unb.cic.mhs.ExpressaoSomaTeste$$anonfun$2.apply(ExpressaoSomaTeste.scala:19)
+      at br.unb.cic.mhs.ExpressaoITETeste$$anonfun$3.apply(ExpressaoITETeste.scala:27)
+      at br.unb.cic.mhs.ExpressaoITETeste$$anonfun$3.apply(ExpressaoITETeste.scala:24)
+      at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)
+      at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
+      at org.scalatest.Transformer.apply(Transformer.scala:22)
+      at org.scalatest.Transformer.apply(Transformer.scala:20)
+      at org.scalatest.FlatSpecLike$$anon$1.apply(FlatSpecLike.scala:1682)
+      at org.scalatest.TestSuite$class.withFixture(TestSuite.scala:196)
+      at org.scalatest.FlatSpec.withFixture(FlatSpec.scala:1685)
+      at org.scalatest.FlatSpecLike$class.invokeWithFixture$1(FlatSpecLike.scala:1679)
+      at org.scalatest.FlatSpecLike$$anonfun$runTest$1.apply(FlatSpecLike.scala:1692)
+      at org.scalatest.FlatSpecLike$$anonfun$runTest$1.apply(FlatSpecLike.scala:1692)
+      at org.scalatest.SuperEngine.runTestImpl(Engine.scala:289)
+      at org.scalatest.FlatSpecLike$class.runTest(FlatSpecLike.scala:1692)
+      at org.scalatest.FlatSpec.runTest(FlatSpec.scala:1685)
+      at org.scalatest.FlatSpecLike$$anonfun$runTests$1.apply(FlatSpecLike.scala:1750)
+      at org.scalatest.FlatSpecLike$$anonfun$runTests$1.apply(FlatSpecLike.scala:1750)
+      at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:396)
+      at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:384)
+      at scala.collection.immutable.List.foreach(List.scala:381)
+      at org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:384)
+      at org.scalatest.SuperEngine.org$scalatest$SuperEngine$$runTestsInBranch(Engine.scala:373)
+      at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:410)
+      at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:384)
+      at scala.collection.immutable.List.foreach(List.scala:381)
+      at org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:384)
+      at org.scalatest.SuperEngine.org$scalatest$SuperEngine$$runTestsInBranch(Engine.scala:379)
+      at org.scalatest.SuperEngine.runTestsImpl(Engine.scala:461)
+      at org.scalatest.FlatSpecLike$class.runTests(FlatSpecLike.scala:1750)
+      at org.scalatest.FlatSpec.runTests(FlatSpec.scala:1685)
+      at org.scalatest.Suite$class.run(Suite.scala:1147)
+      at org.scalatest.FlatSpec.org$scalatest$FlatSpecLike$$super$run(FlatSpec.scala:1685)
+      at org.scalatest.FlatSpecLike$$anonfun$run$1.apply(FlatSpecLike.scala:1795)
+      at org.scalatest.FlatSpecLike$$anonfun$run$1.apply(FlatSpecLike.scala:1795)
+      at org.scalatest.SuperEngine.runImpl(Engine.scala:521)
+      at org.scalatest.FlatSpecLike$class.run(FlatSpecLike.scala:1795)
+      at org.scalatest.FlatSpec.run(FlatSpec.scala:1685)
+      at org.scalatest.Suite$class.callExecuteOnSuite$1(Suite.scala:1210)
+      at org.scalatest.Suite$$anonfun$runNestedSuites$1.apply(Suite.scala:1257)
+      at org.scalatest.Suite$$anonfun$runNestedSuites$1.apply(Suite.scala:1255)
+      at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+      at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)
+      at org.scalatest.Suite$class.runNestedSuites(Suite.scala:1255)
+      at org.scalatest.tools.DiscoverySuite.runNestedSuites(DiscoverySuite.scala:30)
+      at org.scalatest.Suite$class.run(Suite.scala:1144)
+      at org.scalatest.tools.DiscoverySuite.run(DiscoverySuite.scala:30)
+      at org.scalatest.tools.SuiteRunner.run(SuiteRunner.scala:45)
+      at org.scalatest.tools.Runner$$anonfun$doRunRunRunDaDoRunRun$1.apply(Runner.scala:1349)
+      at org.scalatest.tools.Runner$$anonfun$doRunRunRunDaDoRunRun$1.apply(Runner.scala:1343)
+      at scala.collection.immutable.List.foreach(List.scala:381)
+      at org.scalatest.tools.Runner$.doRunRunRunDaDoRunRun(Runner.scala:1343)
+      at org.scalatest.tools.Runner$$anonfun$runOptionallyWithPassFailReporter$2.apply(Runner.scala:1020)
+      at org.scalatest.tools.Runner$$anonfun$runOptionallyWithPassFailReporter$2.apply(Runner.scala:1019)
+      at org.scalatest.tools.Runner$.withClassLoaderAndDispatchReporter(Runner.scala:1509)
+      at org.scalatest.tools.Runner$.runOptionallyWithPassFailReporter(Runner.scala:1019)
+      at org.scalatest.tools.Runner$.main(Runner.scala:828)
+      at org.scalatest.tools.Runner.main(Runner.scala)
+</failure>
+</testcase>
+  <testcase 
+  name="a avaliacao if(true) then 5 else false should levar a um erro de tipo" classname="br.unb.cic.mhs.ExpressaoITETeste" time="0.0">
+    <failure 
+    message="Expected exception br.unb.cic.mhs.exception.TypeException to be thrown, but no exception was thrown" type="class org.scalatest.exceptions.TestFailedException">
+      org.scalatest.exceptions.TestFailedException: Expected exception br.unb.cic.mhs.exception.TypeException to be thrown, but no exception was thrown
+      at org.scalatest.Assertions$class.newAssertionFailedException(Assertions.scala:471)
+      at org.scalatest.FlatSpec.newAssertionFailedException(FlatSpec.scala:1685)
+      at org.scalatest.Assertions$class.intercept(Assertions.scala:765)
+      at org.scalatest.FlatSpec.intercept(FlatSpec.scala:1685)
+      at br.unb.cic.mhs.ExpressaoITETeste$$anonfun$4.apply(ExpressaoITETeste.scala:35)
+      at br.unb.cic.mhs.ExpressaoITETeste$$anonfun$4.apply(ExpressaoITETeste.scala:32)
       at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)
       at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
       at org.scalatest.Transformer.apply(Transformer.scala:22)

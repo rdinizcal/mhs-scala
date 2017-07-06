@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuite 
-errors="0" failures="1" hostname="LENOVO-RICARDO" name="br.unb.cic.mhs.ExpressaoLetTeste" tests="3" time="0.113" timestamp="2017-07-02T11:05:02">
+errors="0" failures="2" hostname="LENOVO-RICARDO" name="br.unb.cic.mhs.ExpressaoLetTeste" tests="5" time="0.019" timestamp="2017-07-05T23:01:36">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment">
     </property>
@@ -91,21 +91,156 @@ errors="0" failures="1" hostname="LENOVO-RICARDO" name="br.unb.cic.mhs.Expressao
     <property name="sun.cpu.isalist" value="amd64"> </property>
   </properties>
   <testcase 
-  name="uma expressao let x = 3 in x + 1 should levar ao valor 4" classname="br.unb.cic.mhs.ExpressaoLetTeste" time="0.037">
+  name="uma expressao let x = 3 in x + 1 should levar ao valor 4" classname="br.unb.cic.mhs.ExpressaoLetTeste" time="0.0">
 </testcase>
   <testcase 
-  name="uma expressao let x = 3 in y = 5 in x + y should levar ao valor 8" classname="br.unb.cic.mhs.ExpressaoLetTeste" time="0.001">
+  name="uma expressao let x = 3 in y = 5 in x + y should levar ao valor 8" classname="br.unb.cic.mhs.ExpressaoLetTeste" time="0.0">
 </testcase>
   <testcase 
-  name="uma expressao let x = 3 in (let x = 5 in x + 1) + x should levar ao valor 9" classname="br.unb.cic.mhs.ExpressaoLetTeste" time="0.02">
+  name="uma expressao let x = 3 in (let x = 5 in x + 1) + x should levar ao valor 9" classname="br.unb.cic.mhs.ExpressaoLetTeste" time="0.001">
     <failure 
     message="11 was not equal to 9" type="class org.scalatest.exceptions.TestFailedException">
       org.scalatest.exceptions.TestFailedException: 11 was not equal to 9
       at org.scalatest.MatchersHelper$.indicateFailure(MatchersHelper.scala:340)
       at org.scalatest.Matchers$ShouldMethodHelper$.shouldMatcher(Matchers.scala:6674)
       at org.scalatest.Matchers$AnyShouldWrapper.should(Matchers.scala:6710)
-      at br.unb.cic.mhs.ExpressaoLetTeste$$anonfun$3.apply(ExpressaoLetTeste.scala:50)
-      at br.unb.cic.mhs.ExpressaoLetTeste$$anonfun$3.apply(ExpressaoLetTeste.scala:42)
+      at br.unb.cic.mhs.ExpressaoLetTeste$$anonfun$3.apply(ExpressaoLetTeste.scala:52)
+      at br.unb.cic.mhs.ExpressaoLetTeste$$anonfun$3.apply(ExpressaoLetTeste.scala:44)
+      at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)
+      at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
+      at org.scalatest.Transformer.apply(Transformer.scala:22)
+      at org.scalatest.Transformer.apply(Transformer.scala:20)
+      at org.scalatest.FlatSpecLike$$anon$1.apply(FlatSpecLike.scala:1682)
+      at org.scalatest.TestSuite$class.withFixture(TestSuite.scala:196)
+      at org.scalatest.FlatSpec.withFixture(FlatSpec.scala:1685)
+      at org.scalatest.FlatSpecLike$class.invokeWithFixture$1(FlatSpecLike.scala:1679)
+      at org.scalatest.FlatSpecLike$$anonfun$runTest$1.apply(FlatSpecLike.scala:1692)
+      at org.scalatest.FlatSpecLike$$anonfun$runTest$1.apply(FlatSpecLike.scala:1692)
+      at org.scalatest.SuperEngine.runTestImpl(Engine.scala:289)
+      at org.scalatest.FlatSpecLike$class.runTest(FlatSpecLike.scala:1692)
+      at org.scalatest.FlatSpec.runTest(FlatSpec.scala:1685)
+      at org.scalatest.FlatSpecLike$$anonfun$runTests$1.apply(FlatSpecLike.scala:1750)
+      at org.scalatest.FlatSpecLike$$anonfun$runTests$1.apply(FlatSpecLike.scala:1750)
+      at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:396)
+      at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:384)
+      at scala.collection.immutable.List.foreach(List.scala:381)
+      at org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:384)
+      at org.scalatest.SuperEngine.org$scalatest$SuperEngine$$runTestsInBranch(Engine.scala:373)
+      at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:410)
+      at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:384)
+      at scala.collection.immutable.List.foreach(List.scala:381)
+      at org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:384)
+      at org.scalatest.SuperEngine.org$scalatest$SuperEngine$$runTestsInBranch(Engine.scala:379)
+      at org.scalatest.SuperEngine.runTestsImpl(Engine.scala:461)
+      at org.scalatest.FlatSpecLike$class.runTests(FlatSpecLike.scala:1750)
+      at org.scalatest.FlatSpec.runTests(FlatSpec.scala:1685)
+      at org.scalatest.Suite$class.run(Suite.scala:1147)
+      at org.scalatest.FlatSpec.org$scalatest$FlatSpecLike$$super$run(FlatSpec.scala:1685)
+      at org.scalatest.FlatSpecLike$$anonfun$run$1.apply(FlatSpecLike.scala:1795)
+      at org.scalatest.FlatSpecLike$$anonfun$run$1.apply(FlatSpecLike.scala:1795)
+      at org.scalatest.SuperEngine.runImpl(Engine.scala:521)
+      at org.scalatest.FlatSpecLike$class.run(FlatSpecLike.scala:1795)
+      at org.scalatest.FlatSpec.run(FlatSpec.scala:1685)
+      at org.scalatest.Suite$class.callExecuteOnSuite$1(Suite.scala:1210)
+      at org.scalatest.Suite$$anonfun$runNestedSuites$1.apply(Suite.scala:1257)
+      at org.scalatest.Suite$$anonfun$runNestedSuites$1.apply(Suite.scala:1255)
+      at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+      at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)
+      at org.scalatest.Suite$class.runNestedSuites(Suite.scala:1255)
+      at org.scalatest.tools.DiscoverySuite.runNestedSuites(DiscoverySuite.scala:30)
+      at org.scalatest.Suite$class.run(Suite.scala:1144)
+      at org.scalatest.tools.DiscoverySuite.run(DiscoverySuite.scala:30)
+      at org.scalatest.tools.SuiteRunner.run(SuiteRunner.scala:45)
+      at org.scalatest.tools.Runner$$anonfun$doRunRunRunDaDoRunRun$1.apply(Runner.scala:1349)
+      at org.scalatest.tools.Runner$$anonfun$doRunRunRunDaDoRunRun$1.apply(Runner.scala:1343)
+      at scala.collection.immutable.List.foreach(List.scala:381)
+      at org.scalatest.tools.Runner$.doRunRunRunDaDoRunRun(Runner.scala:1343)
+      at org.scalatest.tools.Runner$$anonfun$runOptionallyWithPassFailReporter$2.apply(Runner.scala:1020)
+      at org.scalatest.tools.Runner$$anonfun$runOptionallyWithPassFailReporter$2.apply(Runner.scala:1019)
+      at org.scalatest.tools.Runner$.withClassLoaderAndDispatchReporter(Runner.scala:1509)
+      at org.scalatest.tools.Runner$.runOptionallyWithPassFailReporter(Runner.scala:1019)
+      at org.scalatest.tools.Runner$.main(Runner.scala:828)
+      at org.scalatest.tools.Runner.main(Runner.scala)
+</failure>
+</testcase>
+  <testcase 
+  name="uma expressao let x = 3 in (x + 2) should ser igual a uma outra let y = 3 in (y + 2)" classname="br.unb.cic.mhs.ExpressaoLetTeste" time="0.007">
+</testcase>
+  <testcase 
+  name="avaliar uma expressao let x = 1 in (x + true) should acusar um erro de tipos" classname="br.unb.cic.mhs.ExpressaoLetTeste" time="0.0">
+    <failure 
+    message="Expected exception br.unb.cic.mhs.exception.TypeException to be thrown, but java.lang.ClassCastException was thrown" type="class org.scalatest.exceptions.TestFailedException">
+      org.scalatest.exceptions.TestFailedException: Expected exception br.unb.cic.mhs.exception.TypeException to be thrown, but java.lang.ClassCastException was thrown
+      at org.scalatest.Assertions$class.newAssertionFailedException(Assertions.scala:471)
+      at org.scalatest.FlatSpec.newAssertionFailedException(FlatSpec.scala:1685)
+      at org.scalatest.Assertions$class.intercept(Assertions.scala:755)
+      at org.scalatest.FlatSpec.intercept(FlatSpec.scala:1685)
+      at br.unb.cic.mhs.ExpressaoLetTeste$$anonfun$5.apply(ExpressaoLetTeste.scala:69)
+      at br.unb.cic.mhs.ExpressaoLetTeste$$anonfun$5.apply(ExpressaoLetTeste.scala:65)
+      at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)
+      at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
+      at org.scalatest.Transformer.apply(Transformer.scala:22)
+      at org.scalatest.Transformer.apply(Transformer.scala:20)
+      at org.scalatest.FlatSpecLike$$anon$1.apply(FlatSpecLike.scala:1682)
+      at org.scalatest.TestSuite$class.withFixture(TestSuite.scala:196)
+      at org.scalatest.FlatSpec.withFixture(FlatSpec.scala:1685)
+      at org.scalatest.FlatSpecLike$class.invokeWithFixture$1(FlatSpecLike.scala:1679)
+      at org.scalatest.FlatSpecLike$$anonfun$runTest$1.apply(FlatSpecLike.scala:1692)
+      at org.scalatest.FlatSpecLike$$anonfun$runTest$1.apply(FlatSpecLike.scala:1692)
+      at org.scalatest.SuperEngine.runTestImpl(Engine.scala:289)
+      at org.scalatest.FlatSpecLike$class.runTest(FlatSpecLike.scala:1692)
+      at org.scalatest.FlatSpec.runTest(FlatSpec.scala:1685)
+      at org.scalatest.FlatSpecLike$$anonfun$runTests$1.apply(FlatSpecLike.scala:1750)
+      at org.scalatest.FlatSpecLike$$anonfun$runTests$1.apply(FlatSpecLike.scala:1750)
+      at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:396)
+      at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:384)
+      at scala.collection.immutable.List.foreach(List.scala:381)
+      at org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:384)
+      at org.scalatest.SuperEngine.org$scalatest$SuperEngine$$runTestsInBranch(Engine.scala:373)
+      at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:410)
+      at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:384)
+      at scala.collection.immutable.List.foreach(List.scala:381)
+      at org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:384)
+      at org.scalatest.SuperEngine.org$scalatest$SuperEngine$$runTestsInBranch(Engine.scala:379)
+      at org.scalatest.SuperEngine.runTestsImpl(Engine.scala:461)
+      at org.scalatest.FlatSpecLike$class.runTests(FlatSpecLike.scala:1750)
+      at org.scalatest.FlatSpec.runTests(FlatSpec.scala:1685)
+      at org.scalatest.Suite$class.run(Suite.scala:1147)
+      at org.scalatest.FlatSpec.org$scalatest$FlatSpecLike$$super$run(FlatSpec.scala:1685)
+      at org.scalatest.FlatSpecLike$$anonfun$run$1.apply(FlatSpecLike.scala:1795)
+      at org.scalatest.FlatSpecLike$$anonfun$run$1.apply(FlatSpecLike.scala:1795)
+      at org.scalatest.SuperEngine.runImpl(Engine.scala:521)
+      at org.scalatest.FlatSpecLike$class.run(FlatSpecLike.scala:1795)
+      at org.scalatest.FlatSpec.run(FlatSpec.scala:1685)
+      at org.scalatest.Suite$class.callExecuteOnSuite$1(Suite.scala:1210)
+      at org.scalatest.Suite$$anonfun$runNestedSuites$1.apply(Suite.scala:1257)
+      at org.scalatest.Suite$$anonfun$runNestedSuites$1.apply(Suite.scala:1255)
+      at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+      at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)
+      at org.scalatest.Suite$class.runNestedSuites(Suite.scala:1255)
+      at org.scalatest.tools.DiscoverySuite.runNestedSuites(DiscoverySuite.scala:30)
+      at org.scalatest.Suite$class.run(Suite.scala:1144)
+      at org.scalatest.tools.DiscoverySuite.run(DiscoverySuite.scala:30)
+      at org.scalatest.tools.SuiteRunner.run(SuiteRunner.scala:45)
+      at org.scalatest.tools.Runner$$anonfun$doRunRunRunDaDoRunRun$1.apply(Runner.scala:1349)
+      at org.scalatest.tools.Runner$$anonfun$doRunRunRunDaDoRunRun$1.apply(Runner.scala:1343)
+      at scala.collection.immutable.List.foreach(List.scala:381)
+      at org.scalatest.tools.Runner$.doRunRunRunDaDoRunRun(Runner.scala:1343)
+      at org.scalatest.tools.Runner$$anonfun$runOptionallyWithPassFailReporter$2.apply(Runner.scala:1020)
+      at org.scalatest.tools.Runner$$anonfun$runOptionallyWithPassFailReporter$2.apply(Runner.scala:1019)
+      at org.scalatest.tools.Runner$.withClassLoaderAndDispatchReporter(Runner.scala:1509)
+      at org.scalatest.tools.Runner$.runOptionallyWithPassFailReporter(Runner.scala:1019)
+      at org.scalatest.tools.Runner$.main(Runner.scala:828)
+      at org.scalatest.tools.Runner.main(Runner.scala)
+      Cause: java.lang.ClassCastException: br.unb.cic.mhs.ast.ValorBooleano cannot be cast to br.unb.cic.mhs.ast.ValorInteiro
+      at br.unb.cic.mhs.ast.ExpressaoSoma.avaliar(ExpressaoSoma.scala:13)
+      at br.unb.cic.mhs.ast.ExpressaoLet.avaliar(ExpressaoLet.scala:16)
+      at br.unb.cic.mhs.ExpressaoLetTeste$$anonfun$5$$anonfun$apply$1.apply(ExpressaoLetTeste.scala:70)
+      at br.unb.cic.mhs.ExpressaoLetTeste$$anonfun$5$$anonfun$apply$1.apply(ExpressaoLetTeste.scala:70)
+      at org.scalatest.Assertions$class.intercept(Assertions.scala:748)
+      at org.scalatest.FlatSpec.intercept(FlatSpec.scala:1685)
+      at br.unb.cic.mhs.ExpressaoLetTeste$$anonfun$5.apply(ExpressaoLetTeste.scala:69)
+      at br.unb.cic.mhs.ExpressaoLetTeste$$anonfun$5.apply(ExpressaoLetTeste.scala:65)
       at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)
       at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
       at org.scalatest.Transformer.apply(Transformer.scala:22)

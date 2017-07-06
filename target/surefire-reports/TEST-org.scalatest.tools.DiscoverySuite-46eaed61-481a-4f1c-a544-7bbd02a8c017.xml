@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuite 
-errors="0" failures="0" hostname="LENOVO-RICARDO" name="org.scalatest.tools.DiscoverySuite" tests="0" time="0.131" timestamp="2017-07-02T11:05:02">
+errors="0" failures="0" hostname="LENOVO-RICARDO" name="org.scalatest.tools.DiscoverySuite" tests="0" time="0.209" timestamp="2017-07-05T23:01:36">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment">
     </property>

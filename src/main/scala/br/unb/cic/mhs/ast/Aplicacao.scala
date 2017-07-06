@@ -13,9 +13,7 @@ class Aplicacao (val nome: String, val args: Expressao*) extends Expressao{
     }
     funcao.corpo.avaliar()
   }
-  
-  override def verificarTipo() : Tipo = TErro
-  
+    
   override def aceitar[T](visitor : MHSVisitor[T]) : T =  visitor.visitar(this)
   
  

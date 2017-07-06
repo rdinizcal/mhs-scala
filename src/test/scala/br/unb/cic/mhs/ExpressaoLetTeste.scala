@@ -9,6 +9,10 @@ import br.unb.cic.mhs.ast.Referencia
 import br.unb.cic.mhs.ast.ExpressaoLet
 import br.unb.cic.mhs.ast.Referencia
 import br.unb.cic.mhs.ast.ExpressaoLet
+import br.unb.cic.mhs.ast.ValorBooleano
+import br.unb.cic.mhs.exception.TypeException
+import br.unb.cic.mhs.ast.TErro
+import br.unb.cic.mhs.visitors.VerificacaoTipo
 
 /*
  * Classe de teste para expressoes do tipo Let
@@ -50,15 +54,21 @@ class ExpressaoLetTeste extends FlatSpec with Matchers {
      let2.avaliar().asInstanceOf[ValorInteiro].valor should be (9)
   }
   
-  "uma exppressao let x = 3 in (x + 2)" should "ser igual a uma outra let y = 3 in (y + 2)" in {
+  "uma expressao let x = 3 in (x + 2)" should "ser igual a uma outra let y = 3 in (y + 2)" in {
     val letX = new ExpressaoLet("x",new ValorInteiro(3), 
-        new ExpressaoSoma(new Referencia("x"), 
-            new ValorInteiro(2)))
+        new ExpressaoSoma(new Referencia("x"), new ValorInteiro(2)))
     
     val letY = new ExpressaoLet("y",new ValorInteiro(3), 
-        new ExpressaoSoma(new Referencia("y"), 
-            new ValorInteiro(2)))
+        new ExpressaoSoma(new Referencia("y"), new ValorInteiro(2)))
     
     letX.equals(letY) should be (true)
   }
+  
+  "verificar o tipo de  let x = 1 in (x + true)" should "levar a um erro de tipos" in {
+    val let = new ExpressaoLet("x", new ValorInteiro(1), 
+        new ExpressaoSoma(new Referencia("x"), new ValorBooleano(true)))
+    
+    new VerificacaoTipo().visitar(let) should be (TErro)
+  }
+  
 }
