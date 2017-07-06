@@ -18,9 +18,13 @@ import br.unb.cic.mhs.ast.TDouble
 import br.unb.cic.mhs.ast.ExpressaoDivisao
 import br.unb.cic.mhs.ast.ExpressaoSubtracao
 import br.unb.cic.mhs.ast.ExpressaoMultiplicacao
+import br.unb.cic.mhs.ast.ExpressaoLambda
+import br.unb.cic.mhs.ast.ValorFuncao
+import br.unb.cic.mhs.ast.TFuncao
 
 class VerificacaoTipo extends MHSVisitor[Tipo] {
-	
+	 
+  override def visitar(e : ValorFuncao)     : Tipo = TFuncao
   override def visitar(vb : ValorBooleano)  : Tipo = TBooleano
 	override def visitar(vi : ValorInteiro)   : Tipo = TInteiro
 	override def visitar(vd : ValorDouble)    : Tipo = TDouble
@@ -29,6 +33,7 @@ class VerificacaoTipo extends MHSVisitor[Tipo] {
 	override def visitar(e : ExpressaoSoma)   : Tipo = if(e.lhs.aceitar(this) == e.rhs.aceitar(this)) e.rhs.aceitar(this) else TErro
 	override def visitar(e : ExpressaoSubtracao)  : Tipo = if(e.lhs.aceitar(this) == e.rhs.aceitar(this)) e.rhs.aceitar(this) else TErro
 	override def visitar(e : ExpressaoITE)    : Tipo = if(e.condicao.aceitar(this).equals(TBooleano) && e.clausulaThen.aceitar(this) == e.clausulaElse.aceitar(this)) e.clausulaThen.aceitar(this) else TErro
+	override def visitar(e : ExpressaoLambda) : Tipo = e.corpo.avaliar.aceitar(this)
 	override def visitar(e : Aplicacao)       : Tipo = if(e.args.apply(0).aceitar(this) != AmbienteDecFuncao.pesquisar(e.nome).tipo) TErro else AmbienteDecFuncao.pesquisar(e.nome).corpo.aceitar(this)
 	override def visitar(e : ExpressaoLet)    : Tipo = if(e.expNomeada.aceitar(this).equals(TErro)) TErro else e.corpo.aceitar(this)
 	override def visitar(e : Referencia)      : Tipo = if(AmbienteExpressao.pesquisar(e.id) != null) AmbienteExpressao.pesquisar(e.id).aceitar(this) else TErro

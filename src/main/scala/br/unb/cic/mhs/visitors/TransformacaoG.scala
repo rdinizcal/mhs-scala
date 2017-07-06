@@ -1,6 +1,8 @@
 package br.unb.cic.mhs.visitors
 
 import br.unb.cic.mhs.ast.{Aplicacao, Expressao, ExpressaoDivisao, ExpressaoITE, ExpressaoLet, ExpressaoMultiplicacao, ExpressaoSoma, ExpressaoSubtracao, Referencia, ValorBooleano, ValorDouble, ValorInteiro}
+import br.unb.cic.mhs.ast.ValorFuncao
+import br.unb.cic.mhs.ast.ExpressaoLambda
 
 /**
  * Classe abstrata com a implementacao de um MHSVisitor 
@@ -9,6 +11,7 @@ import br.unb.cic.mhs.ast.{Aplicacao, Expressao, ExpressaoDivisao, ExpressaoITE,
  * de interesse. 
  */
 trait TransformacaoG extends MHSVisitor[Expressao] {
+  override def visitar(vf : ValorFuncao)   : Expressao = vf
   override def visitar(vb : ValorBooleano)  : Expressao =  vb
   override def visitar(vi : ValorInteiro)   : Expressao =  vi
   override def visitar(vd : ValorDouble)   : Expressao =  vd
@@ -17,6 +20,7 @@ trait TransformacaoG extends MHSVisitor[Expressao] {
   override def visitar(e : ExpressaoDivisao) : Expressao = new ExpressaoDivisao(e.lhs.aceitar(this),e.rhs.aceitar(this))
   override def visitar(e : ExpressaoMultiplicacao)   : Expressao = new ExpressaoMultiplicacao(e.lhs.aceitar(this),e.rhs.aceitar(this))
   override def visitar(e : ExpressaoITE)    : Expressao = new ExpressaoITE(e.condicao.aceitar(this), e.clausulaThen.aceitar(this), e.clausulaElse.aceitar(this))
+  override def visitar(e : ExpressaoLambda) : Expressao = new ExpressaoLambda(e.arg.aceitar(this), e.corpo.aceitar(this))
   override def visitar(e : Aplicacao)       : Expressao = new Aplicacao(e.nome, e.args.map(exp => exp.aceitar(this)) : _*)
   override def visitar(e : ExpressaoLet)    : Expressao = new ExpressaoLet(e.id, e.expNomeada.aceitar(this), e.corpo.aceitar(this))
   override def visitar(e : Referencia)      : Expressao = e
