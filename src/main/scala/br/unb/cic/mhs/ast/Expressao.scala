@@ -7,6 +7,7 @@ class Tipo
 case object TInteiro extends Tipo 
 case object TBooleano extends Tipo 
 case object TErro extends Tipo
+case object TDouble extends Tipo
 
 trait Expressao {
   
@@ -18,4 +19,5 @@ trait Expressao {
   def aceitar[T](visitor : MHSVisitor[T]) : T
   
   override def equals(other: Any) : Boolean
+
 }
