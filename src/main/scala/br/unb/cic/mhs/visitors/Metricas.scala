@@ -7,14 +7,10 @@ import br.unb.cic.mhs.ast.ExpressaoITE
 import br.unb.cic.mhs.ast.Aplicacao
 import br.unb.cic.mhs.ast.ExpressaoLet
 import br.unb.cic.mhs.ast.Referencia
-import br.unb.cic.mhs.ast.ValorDouble
-import br.unb.cic.mhs.ast.ExpressaoDivisao
 
 class Metricas extends MHSVisitor[Int] {
   def visitar(e : ValorInteiro)  = 1
   def visitar(e : ValorBooleano) = 1
-  def visitar(e : ValorDouble)   = 1
-  def visitar(e : ExpressaoDivisao) = 1 + e.lhs.aceitar(this) + e.rhs.aceitar(this)
   def visitar(e : ExpressaoSoma) = 1 + e.lhs.aceitar(this) + e.rhs.aceitar(this)
   def visitar(e : ExpressaoITE)  = 1 + e.condicao.aceitar(this) + e.clausulaThen.aceitar(this)  + e.clausulaElse.aceitar(this)
   def visitar(e : Aplicacao)     = 1 + e.args.map(e => e.aceitar(this)).sum
