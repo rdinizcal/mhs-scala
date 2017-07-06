@@ -31,4 +31,4 @@ trait MHSVisitor[+T] {
   def visitar(e : ExpressaoLet)   : T
   def visitar(e : ExpressaoLambda): T
   def visitar(e : Referencia)     : T
-}
+} 

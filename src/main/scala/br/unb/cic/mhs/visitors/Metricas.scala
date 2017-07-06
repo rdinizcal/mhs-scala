@@ -22,4 +22,4 @@ class Metricas extends MHSVisitor[Int] {
   def visitar(e : Aplicacao)     = 1 + e.args.map(e => e.aceitar(this)).sum
   def visitar(e : ExpressaoLet)  = 1 + e.expNomeada.aceitar(this) + e.corpo.aceitar(this)
   def visitar(e : Referencia)    = 1 
-}
+} 
