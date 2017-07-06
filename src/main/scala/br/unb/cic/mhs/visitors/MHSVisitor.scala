@@ -11,6 +11,7 @@ import br.unb.cic.mhs.ast.ValorFuncao
 import br.unb.cic.mhs.ast.ExpressaoLambda
 import br.unb.cic.mhs.ast.ValorDouble
 import br.unb.cic.mhs.ast.ExpressaoDivisao
+import br.unb.cic.mhs.ast.ExpressaoSubtracao
 
 /**
  * Define a hierarquia de classes visitors. 
@@ -23,6 +24,7 @@ trait MHSVisitor[+T] {
   def visitar(e : ValorDouble)    : T
   def visitar(e : ValorFuncao)    : T
   def visitar(e : ExpressaoDivisao)  : T
+  def visitar(e : ExpressaoSubtracao)  : T
   def visitar(e : ExpressaoSoma)  : T
   def visitar(e : ExpressaoITE)   : T
   def visitar(e : Aplicacao)      : T
